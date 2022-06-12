@@ -156,7 +156,7 @@ class CLI( Cmd ):
         if line == '':
             output( self.helpStr )
 
-    def do_iperfmulti( self, line):
+    def do_iperfmulti( self, line ):
         """Multi iperf UDP test between nodes"""
         args = line.split()
         if len(args) == 1:

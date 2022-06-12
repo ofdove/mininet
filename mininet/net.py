@@ -884,12 +884,12 @@ class Mininet( object ):
             server = client
             while(server == client):
                 server = random.choice(host_list)
-                server_list.append(server)
-                self.iperf_single(hosts = [client, server], udpBw=bw, period=period, port=base_port)
-                sleep(.05)
-                base_port += 1
-            self.hosts[0].cmd('ping -c10' + self.hosts[-1].IP() + ' > $HOME/log/delay.out')
-            sleep(period)
+            server_list.append(server)
+            self.iperf_single(hosts = [client, server], udpBw=bw, period=period, port=base_port)
+            sleep(.05)
+            base_port += 1
+        self.hosts[0].cmd('ping -c10' + self.hosts[-1].IP() + ' > $HOME/log/delay.out')
+        sleep(period)
 
     def runCpuLimitTest( self, cpu, duration=5 ):
         """run CPU limit test with 'while true' processes.
